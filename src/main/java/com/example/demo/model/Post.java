@@ -1,9 +1,16 @@
 package com.example.demo.model;
 
 import java.time.LocalDateTime;
+import java.util.UUID;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /* @Data 어노테이션:
 @Data 어노테이션은 Lombok 라이브러리에서 제공하는 어노테이션으로,
@@ -17,13 +24,16 @@ JPA는 데이터베이스와 자바 객체를 매핑하는 ORM(Object-Relational
 @Entity 어노테이션이 붙은 클래스는 데이터베이스 테이블과 매핑되어 영속성을 갖게 되며, JPA를 사용하여 데이터베이스와 상호작용할 수 있습니다.
 */
 @Data
+@Entity
+@Builder
+@NoArgsConstructor
 @AllArgsConstructor
 public class Post {
-    private String postId;
+    @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private UUID postId;
     private String title;
     private String contents;
     private String author;
     private LocalDateTime createdDateTime;
-
-    
 }
