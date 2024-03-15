@@ -18,11 +18,7 @@ public class PostService {
     private final PostRepository postRepository;
 
     public List<Post> postList() {
-         return List.of(
-            new Post(UUID.randomUUID(),"Title1","conents1","",LocalDateTime.now()),
-            new Post(UUID.randomUUID(),"Title2","conents21","",LocalDateTime.now()),
-            new Post(UUID.randomUUID(),"Title3","conents31","",LocalDateTime.now())
-         );
+         return null;
     }
     
 }
