@@ -17,9 +17,11 @@ public class PostService {
     private final PostRepository postRepository; //JPA
     private final PostMapper postMapper; //MYbatis
 
-    public List<Post> postList() {
-         //return postRepository.findAll(); jpa
-         return postMapper.listPost(); // mybatis
+    public List<Post> postList(String title) {
+         //return postRepository.findByTitle(title); //jpa 조건 검색
+         return postRepository.findByTitleContains(title); //jpa 조건 검색
+         //return postRepository.findAll(); jpa 전체 검색
+         //return postMapper.listPost(); // mybatis
     }
     
 }

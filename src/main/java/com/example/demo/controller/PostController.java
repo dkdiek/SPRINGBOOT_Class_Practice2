@@ -28,8 +28,8 @@ public class PostController {
     /* /를 붙이는 거랑 없는 거랑 다르다 */
     /* 배열[json 형태]로 묶여 클라이언트에 전달 */
     @GetMapping("/list")
-    public List<Post> postList() {
-            return postService.postList();
+    public List<Post> postList(@RequestParam String title) {
+            return postService.postList(title);
     }
 
     /* http://localhost:8080/posts/1 */

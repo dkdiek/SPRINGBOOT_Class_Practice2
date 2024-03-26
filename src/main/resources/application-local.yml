@@ -19,9 +19,13 @@ spring:
       ddl-auto: create-drop
 mybatis:
   mapper-locations: classpath:mybatis/mapper/h2/**/**.xml #classpath는 기본적으로 resources 폴더이다
-  type-handlers-package: com.example.demo.mapper.typehandler
+  type-handlers-package: com.example.demo.mapper.typehandler #typehandler 경로에 uuid를 사용하기 위한 클래스 연결
   type-aliases-package: com.example.demo.model
   configuration:
     map-underscore-to-camel-case: true #_를 카멜스타일로
     default-statement-timeout: 30 #3초가 넘어가면 취소해라
     default-fetch-size: 100 #한번에 최대 가져오는 사이즈 100개 제한
+logging:
+  level:
+    root: INFO
+    com.example.demo.mapper: TRACE
