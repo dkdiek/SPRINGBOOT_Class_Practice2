@@ -17,14 +17,15 @@ public class SecurityConfig {
     private final AuthenticationProvider authenticationProvider;
 
     @Bean
-    public SecurityFilterChain SecurityFilterChain(HttpSecurity http) throws Exception{
+    public SecurityFilterChain SecurityFilterChain(HttpSecurity http) throws Exception {
         http.csrf(csrf -> csrf.disable())
-        .authorizeHttpRequests((authorizeRequest) -> authorizeRequest
-            .requestMatchers("/auth/**").permitAll().anyRequest().authenticated()) //url이 auth로 시작하면 허용 그외 다른 요청은 인증을 받아야되
-        .authenticationProvider(authenticationProvider) // 그 인증 방식으로는 authenticationProvider를 이용
-        .httpBasic();
+                .authorizeHttpRequests((authorizeRequest) -> authorizeRequest
+                        .requestMatchers("/auth/**").permitAll().anyRequest().authenticated()) // url이 auth로 시작하면 허용 그외
+                                                                                               // 다른 요청은 인증을 받아야되
+                .authenticationProvider(authenticationProvider) // 그 인증 방식으로는 authenticationProvider를 이용
+                .httpBasic(); // httpBasic쓰면 로그인창이 팝업 형태로 출력된다
 
         return http.build();
     }
-    
+
 }
