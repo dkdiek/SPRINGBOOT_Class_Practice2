@@ -17,7 +17,7 @@ public class SecurityConfig {
     private final AuthenticationProvider authenticationProvider;
 
     @Bean
-    public SecurityFilterChain SecurityFilterChain(HttpSecurity http) throws Exception {
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests((authorizeRequest) -> authorizeRequest
                         .requestMatchers("/auth/**").permitAll().anyRequest().authenticated()) // url이 auth로 시작하면 허용 그외

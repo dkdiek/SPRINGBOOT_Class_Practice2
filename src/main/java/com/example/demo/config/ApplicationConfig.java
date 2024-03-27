@@ -15,7 +15,10 @@ import com.example.demo.repository.UserRepository;
 
 import lombok.RequiredArgsConstructor;
 
-/* Security에 필요한 Bean들을 Config에 작성 */
+/* Security에 필요한 Bean들을 Config에 작성
+ * AuthenticationProvider, UserDetailService, PasswordEncoder, AuthenticationManager
+ * SecurityFilterChain은 SecurityConfig.java에 별도로 구현
+ */
 @Configuration
 @RequiredArgsConstructor
 public class ApplicationConfig {
