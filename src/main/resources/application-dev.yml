@@ -8,9 +8,9 @@ spring:
     password: ENC(60DdnL4V2W6B8xUpEqkDPg==) #Jasypt로 암호화한 형태
   jpa:
     database-platform: org.hibernate.dialect.MariaDB103Dialect
+    show-sql: true
     properties:
       hibernate:
-        show-sql: true
         format-sql: true
     hibernate:
       ddl-auto: create-drop

@@ -28,4 +28,4 @@ mybatis:
 logging:
   level:
     root: INFO
-    com.example.demo.mapper: TRACE
+    "[com.example.demo.mapper]": TRACE
